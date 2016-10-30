@@ -28,7 +28,7 @@ import javax.persistence.TemporalType;
 public class Asignacion implements java.io.Serializable{
     
     @Id()
-    @Column(name="id")
+    @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAsignacion;
     
