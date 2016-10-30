@@ -9,6 +9,19 @@ package gt.umg.clinica.entities;
  *
  * @author steven
  */
+@Entity()
+@Table(name = "CLINICA", schema = "CLINICA")
 public class Clinica {
+
+    @Id()
+    @Column(name = "ID")
+    private Integer idClinica;
     
+    @Column(name = "DESCRIPCION", lenght=25)
+    private String Descripcion;
+    
+    @Column(name = "ESTADO", lenght=25)
+    private String Estado;
+    
+
 }
