@@ -8,6 +8,7 @@ package gt.umg.clinica.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -15,22 +16,22 @@ import javax.persistence.Table;
  *
  * @author steven
  */
-
 @Entity()
-@Table(name="PANTALLA",schema="CLINICA")
+@Table(name = "PANTALLA", schema = "CLINICA")
 public class Pantalla implements java.io.Serializable {
-    
+
     @Id()
-    @Column(name="ID")
+    @Column(name = "ID")
     private Integer idPantalla;
-    
-    @Column(name="PANTALLA")
+
+    @Column(name = "PANTALLA")
     private String pantalla;
-    
-    @Column(name="javascript")
+
+    @Column(name = "javascript")
     private String javascript;
-    
-     @ManyToOne
+
+    @ManyToOne()
+    @JoinColumn()
     private Rol rolid;
 
     public Pantalla() {
@@ -74,7 +75,5 @@ public class Pantalla implements java.io.Serializable {
     public void setRolid(Rol rolid) {
         this.rolid = rolid;
     }
-     
-     
-     
+
 }
