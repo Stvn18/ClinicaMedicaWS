@@ -5,9 +5,16 @@
  */
 package gt.umg.clinica.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,34 +27,42 @@ import javax.persistence.Table;
 public class Usuario implements java.io.Serializable {
     
     @Id()
-    @Column(name="id")
+    @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuairo;
     
-    @Column(name="nombre")
+    @Column(name="NOMBRE", length = 25)
     private String nombreUsuario;
     
-    @Column(name="usuario")
+    @Column(name="USUARIO", length = 25)
     private String usuario;
     
-    @Column(name="pass")
+    @Column(name="PASS", length = 25)
     private String pass;
     
-    @Column(name="estado")
+    @Column(name="ESTADO")
     private Integer estado;
     
-    @Column(name="token")
-    private String token;
+    @ManyToOne
+    @JoinColumn()
+    private Rol rol;
+    
+    @OneToMany(mappedBy = "usuario")
+    private List<Trabajador> trabajador = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "usuario")
+    private List<Paciente> paciente = new ArrayList<>();
 
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuairo, String nombreUsuario, String usuario, String pass, Integer estado, String token) {
+    public Usuario(Integer idUsuairo, String nombreUsuario, String usuario, String pass, Integer estado, Rol rol) {
         this.idUsuairo = idUsuairo;
         this.nombreUsuario = nombreUsuario;
         this.usuario = usuario;
         this.pass = pass;
         this.estado = estado;
-        this.token = token;
+        this.rol = rol;
     }
 
     public Integer getIdUsuairo() {
@@ -90,13 +105,28 @@ public class Usuario implements java.io.Serializable {
         this.estado = estado;
     }
 
-    public String getToken() {
-        return token;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
-    
-    
+
+    public List<Trabajador> getTrabajador() {
+        return trabajador;
+    }
+
+    public void setTrabajador(List<Trabajador> trabajador) {
+        this.trabajador = trabajador;
+    }
+
+    public List<Paciente> getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(List<Paciente> paciente) {
+        this.paciente = paciente;
+    }
+     
 }

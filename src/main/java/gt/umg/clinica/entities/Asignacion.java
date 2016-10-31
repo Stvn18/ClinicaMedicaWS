@@ -5,6 +5,7 @@
  */
 package gt.umg.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -36,16 +38,19 @@ public class Asignacion implements java.io.Serializable{
     private Date fecha;
     
     @ManyToOne
+    @JoinColumn()
     private Paciente paciente;
     
     @ManyToOne
+    @JoinColumn()
     private Trabajador trabajador;
     
     @ManyToOne
+    @JoinColumn()
     private Cita cita;
     
-    @OneToMany
-    private List <Horario> horarios = new ArrayList<>();
+    @OneToMany(mappedBy = "asignacion")
+    private List <Historial> historial = new ArrayList<>();
 
     public Asignacion() {
     }
@@ -98,15 +103,13 @@ public class Asignacion implements java.io.Serializable{
         this.cita = cita;
     }
 
-    public List<Horario> getHorarios() {
-        return horarios;
+    public List<Historial> getHistorial() {
+        return historial;
     }
 
-    public void setHorarios(List<Horario> horarios) {
-        this.horarios = horarios;
+    public void setHistorial(List<Historial> historial) {
+        this.historial = historial;
     }
-    
-    
-    
-    
+
+ 
 }

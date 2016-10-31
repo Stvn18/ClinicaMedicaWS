@@ -7,6 +7,8 @@ package gt.umg.clinica.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,26 +24,27 @@ public class Pantalla implements java.io.Serializable {
 
     @Id()
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPantalla;
 
     @Column(name = "PANTALLA")
     private String pantalla;
 
-    @Column(name = "javascript")
-    private String javascript;
+    @Column(name = "URL_IMAGE")
+    private String urlImage;
 
     @ManyToOne()
     @JoinColumn()
-    private Rol rolid;
+    private Rol rol;
 
     public Pantalla() {
     }
 
-    public Pantalla(Integer idPantalla, String pantalla, String javascript, Rol rolid) {
+    public Pantalla(Integer idPantalla, String pantalla, String urlImage, Rol rol) {
         this.idPantalla = idPantalla;
         this.pantalla = pantalla;
-        this.javascript = javascript;
-        this.rolid = rolid;
+        this.urlImage = urlImage;
+        this.rol = rol;
     }
 
     public Integer getIdPantalla() {
@@ -60,20 +63,20 @@ public class Pantalla implements java.io.Serializable {
         this.pantalla = pantalla;
     }
 
-    public String getJavascript() {
-        return javascript;
+    public String getUrlImage() {
+        return urlImage;
     }
 
-    public void setJavascript(String javascript) {
-        this.javascript = javascript;
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 
-    public Rol getRolid() {
-        return rolid;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setRolid(Rol rolid) {
-        this.rolid = rolid;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
 }

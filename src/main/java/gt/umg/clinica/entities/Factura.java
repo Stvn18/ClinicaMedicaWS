@@ -5,10 +5,120 @@
  */
 package gt.umg.clinica.entities;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
  *
  * @author steven
  */
-public class Factura {
+
+@Entity()
+@Table(name="FACTURA", schema="CLINICA")
+public class Factura implements java.io.Serializable{
+    
+    @Id()
+    @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idFactura;
+    
+    @Column(name="NIT",length = 15)
+    private String nit;
+    
+    @Column(name="CLIENTE", length = 25)
+    private String nombreCliente;
+    
+    @Column(name="DIRECCION", length = 25)
+    private String direccion;
+    
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
+    
+    @OneToMany(mappedBy = "factura")
+    private List<FacturaDetalle> facturaDetalle = new ArrayList<>();
+    
+    @ManyToOne
+    @JoinColumn
+    private Paciente paciente;
+
+    public Factura() {
+    }
+
+    public Factura(Integer idFactura, String nit, String nombreCliente, String direccion, Date fecha, Paciente paciente) {
+        this.idFactura = idFactura;
+        this.nit = nit;
+        this.nombreCliente = nombreCliente;
+        this.direccion = direccion;
+        this.fecha = fecha;
+        this.paciente = paciente;
+    }
+
+    public Integer getIdFactura() {
+        return idFactura;
+    }
+
+    public void setIdFactura(Integer idFactura) {
+        this.idFactura = idFactura;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public List<FacturaDetalle> getFacturaDetalle() {
+        return facturaDetalle;
+    }
+
+    public void setFacturaDetalle(List<FacturaDetalle> facturaDetalle) {
+        this.facturaDetalle = facturaDetalle;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
     
 }

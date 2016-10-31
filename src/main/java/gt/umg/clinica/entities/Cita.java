@@ -5,12 +5,16 @@
  */
 package gt.umg.clinica.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,17 +27,24 @@ import javax.persistence.Table;
 public class Cita implements java.io.Serializable{
     
     @Id()
-    @Column(name="id")
+    @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCita;
     
-    @Column(name="descripcion")
+    @Column(name="DESCRIPCION")
     private String descripcionCita;
     
-    @Column(name="estado")
+    @Column(name="ESTADO")
     private Integer estadoCita;
     
+    @OneToMany(mappedBy = "cita")
+    private List <Asignacion> asignacion = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "cita")
+    private List <Historial> historial = new ArrayList<>();
+  
     @ManyToOne
+    @JoinColumn()
     private Horario horario;
 
     public Cita() {
@@ -44,6 +55,22 @@ public class Cita implements java.io.Serializable{
         this.descripcionCita = descripcionCita;
         this.estadoCita = estadoCita;
         this.horario = horario;
+    }
+
+    public List<Asignacion> getAsignacion() {
+        return asignacion;
+    }
+
+    public void setAsignacion(List<Asignacion> asignacion) {
+        this.asignacion = asignacion;
+    }
+
+    public List<Historial> getHistorial() {
+        return historial;
+    }
+
+    public void setHistorial(List<Historial> historial) {
+        this.historial = historial;
     }
 
     public Integer getIdCita() {
