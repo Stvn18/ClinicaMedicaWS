@@ -21,11 +21,14 @@ import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 /**
- * 
+ *
  * @author Steven
  */
 @Configuration
@@ -37,7 +40,7 @@ import org.springframework.web.servlet.view.JstlView;
 )
 //@PropertySource("classpath:clinica.properties")
 public class RootContext {
-    
+
     private static final String VIEW_RESOLVER_PREFIX = "/WEB-INF/views/";
     private static final String VIEW_RESOLVER_SUFFIX = ".xhtml";
 
@@ -99,7 +102,7 @@ public class RootContext {
         jpaProterties.put("hibernate.ejb.naming_strategy", environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_NAMING_STRATEGY));
         jpaProterties.put("hibernate.show_sql", environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
         jpaProterties.put(PROPERTY_NAME_HIBERNATE_GENERATE_STATICS, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_GENERATE_STATICS));
-        
+
         entityManagerFactoryBean.setJpaProperties(jpaProterties);
         entityManagerFactoryBean.afterPropertiesSet();
 
@@ -125,5 +128,17 @@ public class RootContext {
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/api/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+            }
+        };
     }
 }
