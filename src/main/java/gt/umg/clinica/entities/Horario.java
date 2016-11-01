@@ -41,7 +41,6 @@ public class Horario implements java.io.Serializable {
     @OneToMany(mappedBy = "horario")
     private List<Cita> cita = new ArrayList<>();
     
-
     public Horario() {
     }
 

@@ -58,7 +58,7 @@ public class Paciente implements java.io.Serializable {
     private List <Asignacion> asignacion = new ArrayList<>();
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn()
+    @JoinColumn(name = "ID_CLINICA", referencedColumnName = "ID")
     @JsonIgnore()
     private Clinica clinica;
     

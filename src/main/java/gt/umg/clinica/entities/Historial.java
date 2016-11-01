@@ -29,15 +29,15 @@ public class Historial implements java.io.Serializable{
     private Integer id;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_HORARIO", referencedColumnName = "ID")
     private Horario horario;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_CITA", referencedColumnName = "ID")
     private Cita cita;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_ASIGNACION", referencedColumnName = "ID")
     private Asignacion asignacion;
 
     public Historial() {

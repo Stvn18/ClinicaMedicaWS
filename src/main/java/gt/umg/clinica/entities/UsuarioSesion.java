@@ -40,7 +40,7 @@ public class UsuarioSesion implements java.io.Serializable {
     private Date fechaFin;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "USUARIO_ID", referencedColumnName = "ID")
     private Usuario usuario;
 
     public UsuarioSesion() {

@@ -38,7 +38,7 @@ public class Habitacion implements java.io.Serializable {
     private String categoria;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name="ID_CLINICA", referencedColumnName = "ID")
     private Clinica clinica;
 
     public Habitacion() {

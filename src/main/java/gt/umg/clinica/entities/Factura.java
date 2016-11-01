@@ -47,7 +47,7 @@ public class Factura implements java.io.Serializable{
     private Date fecha;
     
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "ID_PACIENTE", referencedColumnName = "ID")
     private Paciente paciente;
 
     public Factura() {

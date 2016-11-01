@@ -37,11 +37,11 @@ public class InventarioDetalle implements java.io.Serializable{
     private Integer precio;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_INVENTARIO", referencedColumnName = "ID")
     private Inventario inventario;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_MEDICAMENTO", referencedColumnName = "ID")
     private Medicamento medicamento;
 
     public InventarioDetalle() {

@@ -43,7 +43,7 @@ public class Usuario implements java.io.Serializable {
     private Integer estado;
 
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ROLID", referencedColumnName = "ID")
     private Rol rol;
 
     @ManyToOne
@@ -51,7 +51,7 @@ public class Usuario implements java.io.Serializable {
     private Trabajador trabajador;
 
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_PACIENTE", referencedColumnName = "ID")
     private Paciente paciente;
 
     public Usuario() {

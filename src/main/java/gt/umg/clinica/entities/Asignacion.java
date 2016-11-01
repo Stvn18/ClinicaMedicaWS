@@ -38,15 +38,15 @@ public class Asignacion implements java.io.Serializable{
     private Date fecha;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_PACIENTE", referencedColumnName = "ID")
     private Paciente paciente;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_TRABAJADOR", referencedColumnName = "ID")
     private Trabajador trabajador;
     
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "ID_CITA", referencedColumnName = "ID")
     @JsonIgnore()
     private Cita cita;
 

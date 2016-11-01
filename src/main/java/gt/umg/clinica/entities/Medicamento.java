@@ -54,7 +54,7 @@ public class Medicamento implements java.io.Serializable{
     private List<FacturaDetalle> facturaDetalle = new ArrayList<>();
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_COMPRA_DET", referencedColumnName = "ID")
     @JsonIgnore()
     private CompraDetalle compraDetalle;
 

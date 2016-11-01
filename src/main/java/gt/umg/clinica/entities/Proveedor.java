@@ -47,7 +47,7 @@ public class Proveedor implements java.io.Serializable {
     
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
+    @JoinColumn(name = "ID_FARMACIA", referencedColumnName = "ID")
     @JsonIgnore()
     private Farmacia farmacia;
 

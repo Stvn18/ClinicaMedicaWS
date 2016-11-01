@@ -44,7 +44,7 @@ public class Compra implements java.io.Serializable {
     private String estado;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_PROVEEDOR", referencedColumnName = "ID")
     private Proveedor proveedor;
     
     @OneToMany(mappedBy = "compra")

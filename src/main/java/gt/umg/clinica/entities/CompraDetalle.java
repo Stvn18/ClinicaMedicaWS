@@ -47,7 +47,7 @@ public class CompraDetalle {
     private Float total;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_COMPRA", referencedColumnName = "ID")
     private Compra compra;
     
     @OneToMany(mappedBy = "compraDetalle")

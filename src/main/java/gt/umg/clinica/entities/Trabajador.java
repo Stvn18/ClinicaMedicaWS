@@ -48,16 +48,16 @@ public class Trabajador implements java.io.Serializable {
     private String sexo;
     
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
     private Usuario usuario;
     
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "ID_PUESTO", referencedColumnName = "ID")
     @JsonIgnore()
     private Puesto puesto;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
+    @JoinColumn(name = "ID_CLINICA", referencedColumnName = "ID")
     private Clinica clinica;
 
     public Trabajador() {

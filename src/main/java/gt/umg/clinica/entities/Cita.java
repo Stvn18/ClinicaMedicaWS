@@ -44,7 +44,7 @@ public class Cita implements java.io.Serializable{
     private List <Historial> historial = new ArrayList<>();
   
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_HORARIO", referencedColumnName = "ID")
     private Horario horario;
 
     public Cita() {

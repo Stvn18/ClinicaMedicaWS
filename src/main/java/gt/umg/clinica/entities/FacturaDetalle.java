@@ -43,15 +43,15 @@ public class FacturaDetalle implements java.io.Serializable {
     private Integer total;
     
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="ID_FACTURA", referencedColumnName = "ID")
     private Factura factura;
     
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="ID_TPAGO", referencedColumnName = "ID")
     private Tpago tpago;
     
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="ID_MEDICAMENTO", referencedColumnName = "ID")
     private Medicamento medicamento;
 
     public FacturaDetalle() {

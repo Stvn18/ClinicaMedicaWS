@@ -35,7 +35,7 @@ public class Pantalla implements java.io.Serializable {
     private String urlImage;
 
     @ManyToOne()
-    @JoinColumn()
+    @JoinColumn(name = "ID_ROL", referencedColumnName = "ID")
     @JsonIgnore()
     private Rol rol;
 
