@@ -38,7 +38,7 @@ import org.springframework.web.servlet.view.JstlView;
         transactionManagerRef = "appTransactionManager",
         basePackages = {"gt.umg.clinica.repo"}
 )
-@PropertySource("classpath:clinica.properties")
+@PropertySource("classpath:db_CLINICA.properties")
 public class RootContext {
 
     private static final String VIEW_RESOLVER_PREFIX = "/WEB-INF/views/";

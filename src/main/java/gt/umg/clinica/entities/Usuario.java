@@ -36,8 +36,8 @@ public class Usuario implements java.io.Serializable {
     @Column(name = "USUARIO", length = 25)
     private String usuario;
 
-    @Column(name = "PASS", length = 25)
-    private String pass;
+    @Column(name = "PASSWORD", length = 25)
+    private String password;
 
     @Column(name = "ESTADO")
     private Integer estado;
@@ -57,11 +57,11 @@ public class Usuario implements java.io.Serializable {
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombreUsuario, String usuario, String pass, Integer estado, Rol rol, Trabajador trabajador, Paciente paciente) {
+    public Usuario(Integer id, String nombreUsuario, String usuario, String password, Integer estado, Rol rol, Trabajador trabajador, Paciente paciente) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.usuario = usuario;
-        this.pass = pass;
+        this.password = password;
         this.estado = estado;
         this.rol = rol;
         this.trabajador = trabajador;
@@ -92,12 +92,12 @@ public class Usuario implements java.io.Serializable {
         this.usuario = usuario;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String pass) {
+        this.password = password;
     }
 
     public Integer getEstado() {
@@ -131,6 +131,4 @@ public class Usuario implements java.io.Serializable {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-
-
 }

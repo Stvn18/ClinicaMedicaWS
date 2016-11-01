@@ -36,6 +36,10 @@ public class Rol implements java.io.Serializable{
     
     @OneToMany(mappedBy = "rol")
     private List<Usuario> usuario = new ArrayList<>();
+    
+    public Rol(){
+        
+    }
 
     public Rol(Integer id, String descripcion) {
         this.id = id;

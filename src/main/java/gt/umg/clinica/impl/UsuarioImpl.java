@@ -54,7 +54,7 @@ public class UsuarioImpl implements UsuarioInte {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
         
-        if("".equals(usuario.getPass()) || usuario.getPass()==null){
+        if("".equals(usuario.getPassword()) || usuario.getPassword()==null){
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
         
