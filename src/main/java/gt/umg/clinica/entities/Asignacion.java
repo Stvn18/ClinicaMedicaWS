@@ -46,11 +46,9 @@ public class Asignacion implements java.io.Serializable{
     private Trabajador trabajador;
     
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn
+    @JsonIgnore()
     private Cita cita;
-    
-    @OneToMany(mappedBy = "asignacion")
-    private List <Historial> historial = new ArrayList<>();
 
     public Asignacion() {
     }
@@ -102,14 +100,4 @@ public class Asignacion implements java.io.Serializable{
     public void setCita(Cita cita) {
         this.cita = cita;
     }
-
-    public List<Historial> getHistorial() {
-        return historial;
-    }
-
-    public void setHistorial(List<Historial> historial) {
-        this.historial = historial;
-    }
-
- 
 }

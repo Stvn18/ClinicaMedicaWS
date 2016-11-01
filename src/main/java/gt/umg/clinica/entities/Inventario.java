@@ -40,9 +40,6 @@ public class Inventario implements java.io.Serializable{
     
     @Column(name="CDINERO")
     private Integer dinero;
-    
-    @OneToMany(mappedBy = "inventario")
-    private List<InventarioDetalle> inventarioDetalle = new ArrayList<>();
 
     public Inventario() {
     }
@@ -84,14 +81,6 @@ public class Inventario implements java.io.Serializable{
 
     public void setDinero(Integer dinero) {
         this.dinero = dinero;
-    }
-
-    public List<InventarioDetalle> getInventarioDetalle() {
-        return inventarioDetalle;
-    }
-
-    public void setInventarioDetalle(List<InventarioDetalle> inventarioDetalle) {
-        this.inventarioDetalle = inventarioDetalle;
     }
    
 }

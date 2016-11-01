@@ -34,9 +34,6 @@ public class Tpago implements java.io.Serializable{
     
     @Column(name="INTERES")
     private Integer interes;
-    
-    @OneToMany(mappedBy = "tpago")
-    private List <FacturaDetalle> facturaDetalle = new ArrayList<>();
 
     public Tpago() {
     }
@@ -69,14 +66,6 @@ public class Tpago implements java.io.Serializable{
 
     public void setInteres(Integer interes) {
         this.interes = interes;
-    }
-
-    public List<FacturaDetalle> getFacturaDetalle() {
-        return facturaDetalle;
-    }
-
-    public void setFacturaDetalle(List<FacturaDetalle> facturaDetalle) {
-        this.facturaDetalle = facturaDetalle;
     }
     
 }

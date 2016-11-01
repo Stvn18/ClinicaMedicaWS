@@ -46,9 +46,6 @@ public class Factura implements java.io.Serializable{
     @Temporal(TemporalType.DATE)
     private Date fecha;
     
-    @OneToMany(mappedBy = "factura")
-    private List<FacturaDetalle> facturaDetalle = new ArrayList<>();
-    
     @ManyToOne
     @JoinColumn
     private Paciente paciente;
@@ -104,15 +101,6 @@ public class Factura implements java.io.Serializable{
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-    public List<FacturaDetalle> getFacturaDetalle() {
-        return facturaDetalle;
-    }
-
-    public void setFacturaDetalle(List<FacturaDetalle> facturaDetalle) {
-        this.facturaDetalle = facturaDetalle;
-    }
-
     public Paciente getPaciente() {
         return paciente;
     }

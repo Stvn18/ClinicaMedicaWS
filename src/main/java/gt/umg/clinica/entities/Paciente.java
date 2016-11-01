@@ -5,6 +5,7 @@
  */
 package gt.umg.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -58,10 +59,10 @@ public class Paciente implements java.io.Serializable {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn()
+    @JsonIgnore()
     private Clinica clinica;
     
-    @ManyToOne
-    @JoinColumn()
+    @OneToMany(mappedBy = "paciente")
     private Usuario usuario;
 
     public Paciente() {

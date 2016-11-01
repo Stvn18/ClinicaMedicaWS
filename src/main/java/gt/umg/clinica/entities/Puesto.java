@@ -36,9 +36,6 @@ public class Puesto implements java.io.Serializable {
     
     @Column(name="UBICACION")
     private String ubicacion;
-    
-    @OneToMany(mappedBy = "puesto")
-    private List<Trabajador> trabajador = new ArrayList<>();
 
     public Puesto() {
     }
@@ -80,14 +77,6 @@ public class Puesto implements java.io.Serializable {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
-    }
-
-    public List<Trabajador> getTrabajador() {
-        return trabajador;
-    }
-
-    public void setTrabajador(List<Trabajador> trabajador) {
-        this.trabajador = trabajador;
     }
     
 }

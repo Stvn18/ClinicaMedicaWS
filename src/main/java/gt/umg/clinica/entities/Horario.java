@@ -41,8 +41,6 @@ public class Horario implements java.io.Serializable {
     @OneToMany(mappedBy = "horario")
     private List<Cita> cita = new ArrayList<>();
     
-    @OneToMany(mappedBy = "horario")
-    private List<Historial> historial = new ArrayList<>();
 
     public Horario() {
     }
@@ -83,14 +81,6 @@ public class Horario implements java.io.Serializable {
 
     public void setCita(List<Cita> cita) {
         this.cita = cita;
-    }
-
-    public List<Historial> getHistorial() {
-        return historial;
-    }
-
-    public void setHistorial(List<Historial> historial) {
-        this.historial = historial;
     }
 
 }

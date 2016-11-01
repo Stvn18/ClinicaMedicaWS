@@ -40,14 +40,6 @@ public class Clinica implements java.io.Serializable {
     @Column(name = "TELEFONO", length = 8)
     private String telefonoClinica;
     
-    @OneToMany(mappedBy = "clinica")
-    private List<Paciente> paciente = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "clinica")
-    private List<Trabajador> trabajador = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "clinica")
-    private List<Habitacion> habitacion = new ArrayList<>();
 
     public Clinica() {
     }
@@ -99,31 +91,5 @@ public class Clinica implements java.io.Serializable {
     public void setTelefonoClinica(String telefonoClinica) {
         this.telefonoClinica = telefonoClinica;
     }
-
-    public List<Paciente> getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(List<Paciente> paciente) {
-        this.paciente = paciente;
-    }
-
-    public List<Trabajador> getTrabajador() {
-        return trabajador;
-    }
-
-    public void setTrabajador(List<Trabajador> trabajador) {
-        this.trabajador = trabajador;
-    }
-
-    public List<Habitacion> getHabitacion() {
-        return habitacion;
-    }
-
-    public void setHabitacion(List<Habitacion> habitacion) {
-        this.habitacion = habitacion;
-    }
-    
-    
 
 }

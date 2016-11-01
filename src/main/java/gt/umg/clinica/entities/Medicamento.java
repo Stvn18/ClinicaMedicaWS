@@ -5,6 +5,7 @@
  */
 package gt.umg.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,13 +50,12 @@ public class Medicamento implements java.io.Serializable{
     private String marca;
     
     @OneToMany(mappedBy = "medicamento")
+    @JsonIgnore()
     private List<FacturaDetalle> facturaDetalle = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "medicamento")
-    private List<InventarioDetalle> inventarioDetalle = new ArrayList<>();
     
     @ManyToOne
     @JoinColumn()
+    @JsonIgnore()
     private CompraDetalle compraDetalle;
 
     public Medicamento() {
@@ -125,14 +125,6 @@ public class Medicamento implements java.io.Serializable{
 
     public void setFacturaDetalle(List<FacturaDetalle> facturaDetalle) {
         this.facturaDetalle = facturaDetalle;
-    }
-
-    public List<InventarioDetalle> getInventarioDetalle() {
-        return inventarioDetalle;
-    }
-
-    public void setInventarioDetalle(List<InventarioDetalle> inventarioDetalle) {
-        this.inventarioDetalle = inventarioDetalle;
     }
 
     public CompraDetalle getCompraDetalle() {

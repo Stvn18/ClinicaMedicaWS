@@ -5,6 +5,7 @@
  */
 package gt.umg.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -44,11 +45,10 @@ public class Proveedor implements java.io.Serializable {
     @Column(name="DIRECCION", length = 25)
     private String direccion;
     
-    @OneToMany(mappedBy = "proveedor")
-    private List<Compra> compra = new ArrayList<>();
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn()
+    @JoinColumn
+    @JsonIgnore()
     private Farmacia farmacia;
 
     public Proveedor() {
@@ -101,14 +101,6 @@ public class Proveedor implements java.io.Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public List<Compra> getCompra() {
-        return compra;
-    }
-
-    public void setCompra(List<Compra> compra) {
-        this.compra = compra;
     }
 
     public Farmacia getFarmacia() {

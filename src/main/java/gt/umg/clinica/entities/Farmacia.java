@@ -37,9 +37,6 @@ public class Farmacia implements java.io.Serializable{
     
     @Column(name="TELEFONO", length = 8)
     private String telefono;
-    
-    @OneToMany(mappedBy = "farmacia")
-    private List <Proveedor> proveedor = new ArrayList<>();
 
     public Farmacia() {
     }
@@ -81,14 +78,6 @@ public class Farmacia implements java.io.Serializable{
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public List<Proveedor> getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(List<Proveedor> proveedor) {
-        this.proveedor = proveedor;
     }
     
 }
