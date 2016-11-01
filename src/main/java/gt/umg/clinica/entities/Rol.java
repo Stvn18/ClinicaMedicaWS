@@ -32,7 +32,7 @@ public class Rol implements java.io.Serializable{
     private String descripcion;
     
     @OneToMany(mappedBy = "rol")
-    private List<Pantalla> pantalla = new ArrayList<>();
+    private List<Pantalla> pantallas = new ArrayList<>();
     
     @OneToMany(mappedBy = "rol")
     private List<Usuario> usuario = new ArrayList<>();
@@ -59,11 +59,11 @@ public class Rol implements java.io.Serializable{
     }
 
     public List<Pantalla> getPantalla() {
-        return pantalla;
+        return pantallas;
     }
 
     public void setPantalla(List<Pantalla> pantalla) {
-        this.pantalla = pantalla;
+        this.pantallas = pantalla;
     }
 
     public List<Usuario> getUsuario() {

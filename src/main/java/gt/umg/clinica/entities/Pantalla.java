@@ -5,6 +5,7 @@
  */
 package gt.umg.clinica.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,6 +36,7 @@ public class Pantalla implements java.io.Serializable {
 
     @ManyToOne()
     @JoinColumn()
+    @JsonIgnore()
     private Rol rol;
 
     public Pantalla() {
