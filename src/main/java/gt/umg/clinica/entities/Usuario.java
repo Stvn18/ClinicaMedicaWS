@@ -28,7 +28,7 @@ public class Usuario implements java.io.Serializable {
     @Id()
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idUsuairo;
+    private Integer id;
 
     @Column(name = "NOMBRE", length = 25)
     private String nombreUsuario;
@@ -47,7 +47,7 @@ public class Usuario implements java.io.Serializable {
     private Rol rol;
 
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "ID_TRABAJADOR", referencedColumnName = "ID")
     private Trabajador trabajador;
 
     @ManyToOne
@@ -57,8 +57,8 @@ public class Usuario implements java.io.Serializable {
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuairo, String nombreUsuario, String usuario, String pass, Integer estado, Rol rol, Trabajador trabajador, Paciente paciente) {
-        this.idUsuairo = idUsuairo;
+    public Usuario(Integer id, String nombreUsuario, String usuario, String pass, Integer estado, Rol rol, Trabajador trabajador, Paciente paciente) {
+        this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.usuario = usuario;
         this.pass = pass;
@@ -68,14 +68,12 @@ public class Usuario implements java.io.Serializable {
         this.paciente = paciente;
     }
 
-
-
-    public Integer getIdUsuairo() {
-        return idUsuairo;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdUsuairo(Integer idUsuairo) {
-        this.idUsuairo = idUsuairo;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombreUsuario() {

@@ -25,7 +25,7 @@ public class InventarioDetalle implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idInvDetalle;
+    private Integer id;
     
     @Column(name="CODIGO",length = 10)
     private String codigo;
@@ -47,8 +47,8 @@ public class InventarioDetalle implements java.io.Serializable{
     public InventarioDetalle() {
     }
 
-    public InventarioDetalle(Integer idInvDetalle, String codigo, String descripcion, Integer precio, Inventario inventario, Medicamento medicamento) {
-        this.idInvDetalle = idInvDetalle;
+    public InventarioDetalle(Integer id, String codigo, String descripcion, Integer precio, Inventario inventario, Medicamento medicamento) {
+        this.id = id;
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -56,14 +56,14 @@ public class InventarioDetalle implements java.io.Serializable{
         this.medicamento = medicamento;
     }
 
-    public Integer getIdInvDetalle() {
-        return idInvDetalle;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdInvDetalle(Integer idInvDetalle) {
-        this.idInvDetalle = idInvDetalle;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public String getCodigo() {
         return codigo;
     }

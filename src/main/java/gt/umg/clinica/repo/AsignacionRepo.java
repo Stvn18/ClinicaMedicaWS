@@ -25,12 +25,13 @@ public interface AsignacionRepo extends JpaRepository<Asignacion, Integer> {
     @Override
     List <Asignacion> findAll();
     
-    Date findByDate(Date fecha);
+    Date findByfecha(Date fecha);
     
-    List <Paciente> findByPaciente(Integer id);
+    List <Paciente> findByPaciente(Paciente paciente);
     
-    List <Trabajador> findByTrabajador(Integer id);
+    List <Trabajador> findByTrabajador(Trabajador trabajador);
     
-    @Query("select max(id) from ASIGNACION")
-    Integer findByIdAsigacion();    
+    @Query("select max(id) from Asignacion")
+    Integer findByIdAsigacion();
+    
 }

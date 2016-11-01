@@ -29,7 +29,7 @@ public class CompraDetalle {
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCompraDetalle;
+    private Integer id;
     
     @Column(name="DESCRIPCION", length = 25)
     private String descripcion;
@@ -56,8 +56,8 @@ public class CompraDetalle {
     public CompraDetalle() {
     }
 
-    public CompraDetalle(Integer idCompraDetalle, String descripcion, Float costoU, Float iva, Integer cantidad, Float total, Compra compra) {
-        this.idCompraDetalle = idCompraDetalle;
+    public CompraDetalle(Integer id, String descripcion, Float costoU, Float iva, Integer cantidad, Float total, Compra compra) {
+        this.id = id;
         this.descripcion = descripcion;
         this.costoU = costoU;
         this.iva = iva;
@@ -66,12 +66,12 @@ public class CompraDetalle {
         this.compra = compra;
     }
 
-    public Integer getIdCompraDetalle() {
-        return idCompraDetalle;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCompraDetalle(Integer idCompraDetalle) {
-        this.idCompraDetalle = idCompraDetalle;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDescripcion() {

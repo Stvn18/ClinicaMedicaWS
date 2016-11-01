@@ -32,7 +32,7 @@ public class Compra implements java.io.Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
-    private Integer idCompra;
+    private Integer id;
     
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -53,20 +53,20 @@ public class Compra implements java.io.Serializable {
     public Compra() {
     }
 
-    public Compra(Integer idCompra, Date fecha, Integer total, String estado, Proveedor proveedor) {
-        this.idCompra = idCompra;
+    public Compra(Integer id, Date fecha, Integer total, String estado, Proveedor proveedor) {
+        this.id = id;
         this.fecha = fecha;
         this.total = total;
         this.estado = estado;
         this.proveedor = proveedor;
     }
 
-    public Integer getIdCompra() {
-        return idCompra;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCompra(Integer idCompra) {
-        this.idCompra = idCompra;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Date getFecha() {

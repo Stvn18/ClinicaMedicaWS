@@ -26,7 +26,7 @@ public class Historial implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idHistorial;
+    private Integer id;
     
     @ManyToOne
     @JoinColumn()
@@ -43,19 +43,19 @@ public class Historial implements java.io.Serializable{
     public Historial() {
     }
 
-    public Historial(Integer idHistorial, Horario horario, Cita cita, Asignacion asignacion) {
-        this.idHistorial = idHistorial;
+    public Historial(Integer id, Horario horario, Cita cita, Asignacion asignacion) {
+        this.id = id;
         this.horario = horario;
         this.cita = cita;
         this.asignacion = asignacion;
     }
 
-    public Integer getIdHistorial() {
-        return idHistorial;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdHistorial(Integer idHistorial) {
-        this.idHistorial = idHistorial;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Horario getHorario() {

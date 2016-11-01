@@ -26,7 +26,7 @@ public class Habitacion implements java.io.Serializable {
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idHabitacion;
+    private Integer id;
     
     @Column(name="NIVEL")
     private Integer nivel;
@@ -44,22 +44,22 @@ public class Habitacion implements java.io.Serializable {
     public Habitacion() {
     }
 
-    public Habitacion(Integer idHabitacion, Integer nivel, Integer camas, String categoria, Clinica clinica) {
-        this.idHabitacion = idHabitacion;
+    public Habitacion(Integer id, Integer nivel, Integer camas, String categoria, Clinica clinica) {
+        this.id = id;
         this.nivel = nivel;
         this.camas = camas;
         this.categoria = categoria;
         this.clinica = clinica;
     }
 
-    public Integer getIdHabitacion() {
-        return idHabitacion;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdHabitacion(Integer idHabitacion) {
-        this.idHabitacion = idHabitacion;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public Integer getNivel() {
         return nivel;
     }

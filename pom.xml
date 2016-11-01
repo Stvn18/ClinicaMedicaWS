@@ -90,13 +90,6 @@
             <type>jar</type>
         </dependency>
         
-        <!--Driver SQL server para Java-->
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>sqljdbc4</artifactId>
-            <version>4.0</version>
-        </dependency>
-        
         <!--Librerias para el manejo de Logs-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -120,6 +113,12 @@
             <groupId>com.oracle</groupId> 
             <artifactId>ojdbc7</artifactId> 
             <version>12.1.0.1</version> 
+        </dependency>
+        
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.1</version> <!-- makesure correct version here -->
         </dependency>
         
     </dependencies>

@@ -31,7 +31,7 @@ public class Proveedor implements java.io.Serializable {
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idProveedor;
+    private Integer id;
     
     @Column(name="NOMBRE",length = 25)
     private String nombre;
@@ -54,8 +54,8 @@ public class Proveedor implements java.io.Serializable {
     public Proveedor() {
     }
 
-    public Proveedor(Integer idProveedor, String nombre, String telefono, String nit, String direccion, Farmacia farmacia) {
-        this.idProveedor = idProveedor;
+    public Proveedor(Integer id, String nombre, String telefono, String nit, String direccion, Farmacia farmacia) {
+        this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.nit = nit;
@@ -63,14 +63,14 @@ public class Proveedor implements java.io.Serializable {
         this.farmacia = farmacia;
     }
 
-    public Integer getIdProveedor() {
-        return idProveedor;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdProveedor(Integer idProveedor) {
-        this.idProveedor = idProveedor;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public String getNombre() {
         return nombre;
     }

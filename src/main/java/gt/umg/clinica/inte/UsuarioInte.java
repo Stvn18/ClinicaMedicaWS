@@ -19,21 +19,24 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Steven
  */
-
 @RestController()
-@RequestMapping(value="/api/Usuario", produces={MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+@RequestMapping(value = "/api/Usuario", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 public interface UsuarioInte {
     
-    @Transactional(readOnly=true)
-    @RequestMapping(value={"","/"}, method = RequestMethod.GET)
-    public ResponseEntity <Usuario> findByUser(
-     @RequestParam(value="usuario") String usuario
-    )throws Exception;
+    @Transactional(readOnly = true)
+    @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
+    public ResponseEntity<Usuario> findAll() throws Exception;
     
+    @Transactional(readOnly = true)
+    @RequestMapping(value = "/findByUser", method = RequestMethod.GET)
+    public ResponseEntity<Usuario> findByUser(
+            @RequestParam(value = "usuario") String usuario
+    ) throws Exception;
+
     @Transactional()
-    @RequestMapping(value={"","/"}, method = RequestMethod.POST)
-    public ResponseEntity <Usuario> doCreate(
-     @RequestBody(required = true) Usuario usuario
-    )throws Exception;
-    
+    @RequestMapping(value = {"", "/"}, method = RequestMethod.POST)
+    public ResponseEntity<Usuario> doCreate(
+            @RequestBody(required = true) Usuario usuario
+    ) throws Exception;
+
 }

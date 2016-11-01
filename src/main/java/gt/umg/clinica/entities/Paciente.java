@@ -31,7 +31,7 @@ public class Paciente implements java.io.Serializable {
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idPaciente;
+    private Integer id;
     
     @Column(name="NOMBRE", length = 25)
     private String nombre;
@@ -51,8 +51,8 @@ public class Paciente implements java.io.Serializable {
     @Column(name="IGSS", length = 10)
     private String igss;
     
-    @OneToMany(mappedBy = "paciente")
-    private List <Factura> factura = new ArrayList<>();
+    //@OneToMany(mappedBy = "paciente")
+    //private List <Factura> factura = new ArrayList<>();
     
     @OneToMany(mappedBy = "paciente")
     private List <Asignacion> asignacion = new ArrayList<>();
@@ -62,14 +62,15 @@ public class Paciente implements java.io.Serializable {
     @JsonIgnore()
     private Clinica clinica;
     
-    @OneToMany(mappedBy = "paciente")
+    @ManyToOne()
+    @JoinColumn(name = "USUARIOID", referencedColumnName = "ID")
     private Usuario usuario;
 
     public Paciente() {
     }
 
-    public Paciente(Integer idPaciente, String nombre, String apellido, Integer edad, String telefono, String sexo, String igss, Clinica clinica, Usuario usuario) {
-        this.idPaciente = idPaciente;
+    public Paciente(Integer id, String nombre, String apellido, Integer edad, String telefono, String sexo, String igss, Clinica clinica, Usuario usuario) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -80,14 +81,14 @@ public class Paciente implements java.io.Serializable {
         this.usuario = usuario;
     }
 
-    public Integer getIdPaciente() {
-        return idPaciente;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdPaciente(Integer idPaciente) {
-        this.idPaciente = idPaciente;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
@@ -135,14 +136,15 @@ public class Paciente implements java.io.Serializable {
     public void setIgss(String igss) {
         this.igss = igss;
     }
-
+    
+    /*
     public List<Factura> getFactura() {
         return factura;
     }
 
     public void setFactura(List<Factura> factura) {
         this.factura = factura;
-    }
+    }*/
 
     public List<Asignacion> getAsignacion() {
         return asignacion;

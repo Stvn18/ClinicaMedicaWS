@@ -30,7 +30,7 @@ public class Trabajador implements java.io.Serializable {
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idTrabajador;
+    private Integer id;
     
     @Column(name="NOMBRE", length = 25)
     private String nombre;
@@ -63,8 +63,8 @@ public class Trabajador implements java.io.Serializable {
     public Trabajador() {
     }
 
-    public Trabajador(Integer idTrabajador, String nombre, String apellido, Integer edad, String telefono, String sexo, Usuario usuario, Puesto puesto, Clinica clinica) {
-        this.idTrabajador = idTrabajador;
+    public Trabajador(Integer id, String nombre, String apellido, Integer edad, String telefono, String sexo, Usuario usuario, Puesto puesto, Clinica clinica) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -75,14 +75,14 @@ public class Trabajador implements java.io.Serializable {
         this.clinica = clinica;
     }
 
-    public Integer getIdTrabajador() {
-        return idTrabajador;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdTrabajador(Integer idTrabajador) {
-        this.idTrabajador = idTrabajador;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public String getNombre() {
         return nombre;
     }

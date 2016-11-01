@@ -32,7 +32,7 @@ public class Medicamento implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idMedicamento;
+    private Integer id;
     
     @Column(name="CODIGO", length = 10)
     private String codigo;
@@ -61,8 +61,8 @@ public class Medicamento implements java.io.Serializable{
     public Medicamento() {
     }
 
-    public Medicamento(Integer idMedicamento, String codigo, String nombre, Date fechaFabricacion, Date fechaVencimiento, String marca, CompraDetalle compraDetalle) {
-        this.idMedicamento = idMedicamento;
+    public Medicamento(Integer id, String codigo, String nombre, Date fechaFabricacion, Date fechaVencimiento, String marca, CompraDetalle compraDetalle) {
+        this.id = id;
         this.codigo = codigo;
         this.nombre = nombre;
         this.fechaFabricacion = fechaFabricacion;
@@ -71,14 +71,14 @@ public class Medicamento implements java.io.Serializable{
         this.compraDetalle = compraDetalle;
     }
 
-    public Integer getIdMedicamento() {
-        return idMedicamento;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdMedicamento(Integer idMedicamento) {
-        this.idMedicamento = idMedicamento;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public String getCodigo() {
         return codigo;
     }

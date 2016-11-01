@@ -27,7 +27,7 @@ public class Farmacia implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idFarmacia;
+    private Integer id;
     
     @Column(name="NOMBRE", length = 25)
     private String nombreFarmacia;
@@ -41,21 +41,21 @@ public class Farmacia implements java.io.Serializable{
     public Farmacia() {
     }
 
-    public Farmacia(Integer idFarmacia, String nombreFarmacia, String nit, String telefono) {
-        this.idFarmacia = idFarmacia;
+    public Farmacia(Integer id, String nombreFarmacia, String nit, String telefono) {
+        this.id = id;
         this.nombreFarmacia = nombreFarmacia;
         this.nit = nit;
         this.telefono = telefono;
     }
 
-    public Integer getIdFarmacia() {
-        return idFarmacia;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdFarmacia(Integer idFarmacia) {
-        this.idFarmacia = idFarmacia;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public String getNombreFarmacia() {
         return nombreFarmacia;
     }

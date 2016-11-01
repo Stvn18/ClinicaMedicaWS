@@ -23,9 +23,9 @@ public interface FacturaDetalleRepo extends JpaRepository<FacturaDetalle, Intege
     @Override
     List <FacturaDetalle> findAll();
     
-    List <Factura> findByFactura(Integer id);
+    List <Factura> findByFactura(Factura factura);
     
-    @Query("select max(id) from FACTURA_DETALLE")
+    @Query("select max(id) from FacturaDetalle")
     Integer findByMaxIdFacturaDetalle();
     
 }

@@ -28,7 +28,7 @@ public class UsuarioSesion implements java.io.Serializable {
     @Id()
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idUsuarioS;
+    private Integer id;
 
     @Column(name = "TOKEN")
     private String token;
@@ -46,22 +46,22 @@ public class UsuarioSesion implements java.io.Serializable {
     public UsuarioSesion() {
     }
 
-    public UsuarioSesion(Integer idUsuarioS, String token, Date fechaInicio, Date fechaFin, Usuario usuario) {
-        this.idUsuarioS = idUsuarioS;
+    public UsuarioSesion(Integer id, String token, Date fechaInicio, Date fechaFin, Usuario usuario) {
+        this.id = id;
         this.token = token;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.usuario = usuario;
     }
 
-    public Integer getIdUsuarioS() {
-        return idUsuarioS;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdUsuarioS(Integer idUsuarioS) {
-        this.idUsuarioS = idUsuarioS;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public String getToken() {
         return token;
     }

@@ -26,7 +26,7 @@ public class Pantalla implements java.io.Serializable {
     @Id()
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idPantalla;
+    private Integer id;
 
     @Column(name = "PANTALLA")
     private String pantalla;
@@ -42,19 +42,19 @@ public class Pantalla implements java.io.Serializable {
     public Pantalla() {
     }
 
-    public Pantalla(Integer idPantalla, String pantalla, String urlImage, Rol rol) {
-        this.idPantalla = idPantalla;
+    public Pantalla(Integer id, String pantalla, String urlImage, Rol rol) {
+        this.id = id;
         this.pantalla = pantalla;
         this.urlImage = urlImage;
         this.rol = rol;
     }
 
-    public Integer getIdPantalla() {
-        return idPantalla;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdPantalla(Integer idPantalla) {
-        this.idPantalla = idPantalla;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getPantalla() {
@@ -80,5 +80,7 @@ public class Pantalla implements java.io.Serializable {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
+
+    
 
 }

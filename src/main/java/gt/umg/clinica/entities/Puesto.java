@@ -26,7 +26,7 @@ public class Puesto implements java.io.Serializable {
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idPuesto;
+    private Integer id;
     
     @Column(name="NOMBRE", length = 25)
     private String nombrePuesto;
@@ -40,19 +40,19 @@ public class Puesto implements java.io.Serializable {
     public Puesto() {
     }
 
-    public Puesto(Integer idPuesto, String nombrePuesto, Integer salario, String ubicacion) {
-        this.idPuesto = idPuesto;
+    public Puesto(Integer id, String nombrePuesto, Integer salario, String ubicacion) {
+        this.id = id;
         this.nombrePuesto = nombrePuesto;
         this.salario = salario;
         this.ubicacion = ubicacion;
     }
 
-    public Integer getIdPuesto() {
-        return idPuesto;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdPuesto(Integer idPuesto) {
-        this.idPuesto = idPuesto;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombrePuesto() {

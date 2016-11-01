@@ -30,7 +30,7 @@ public class Horario implements java.io.Serializable {
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idHorario;
+    private Integer id;
     
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -45,20 +45,20 @@ public class Horario implements java.io.Serializable {
     public Horario() {
     }
 
-    public Horario(Integer idHorario, Date fecha, Date hora) {
-        this.idHorario = idHorario;
+    public Horario(Integer id, Date fecha, Date hora) {
+        this.id = id;
         this.fecha = fecha;
         this.hora = hora;
     }
 
-    public Integer getIdHorario() {
-        return idHorario;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdHorario(Integer idHorario) {
-        this.idHorario = idHorario;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public Date getFecha() {
         return fecha;
     }

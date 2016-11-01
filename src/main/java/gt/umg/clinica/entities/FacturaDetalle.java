@@ -25,7 +25,7 @@ public class FacturaDetalle implements java.io.Serializable {
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idFacturaDetalle;
+    private Integer id;
     
     @Column(name="CANTIDAD")
     private Integer cantidad;
@@ -57,8 +57,8 @@ public class FacturaDetalle implements java.io.Serializable {
     public FacturaDetalle() {
     }
 
-    public FacturaDetalle(Integer idFacturaDetalle, Integer cantidad, String codigo, String descripcion, Integer subtotal, Integer total, Factura factura, Tpago tpago, Medicamento medicamento) {
-        this.idFacturaDetalle = idFacturaDetalle;
+    public FacturaDetalle(Integer id, Integer cantidad, String codigo, String descripcion, Integer subtotal, Integer total, Factura factura, Tpago tpago, Medicamento medicamento) {
+        this.id = id;
         this.cantidad = cantidad;
         this.codigo = codigo;
         this.descripcion = descripcion;
@@ -69,14 +69,14 @@ public class FacturaDetalle implements java.io.Serializable {
         this.medicamento = medicamento;
     }
 
-    public Integer getIdFacturaDetalle() {
-        return idFacturaDetalle;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdFacturaDetalle(Integer idFacturaDetalle) {
-        this.idFacturaDetalle = idFacturaDetalle;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public Integer getCantidad() {
         return cantidad;
     }

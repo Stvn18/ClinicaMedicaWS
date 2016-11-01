@@ -29,7 +29,7 @@ public class Cita implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCita;
+    private Integer id;
     
     @Column(name="DESCRIPCION")
     private String descripcionCita;
@@ -50,13 +50,21 @@ public class Cita implements java.io.Serializable{
     public Cita() {
     }
 
-    public Cita(Integer idCita, String descripcionCita, Integer estadoCita, Horario horario) {
-        this.idCita = idCita;
+    public Cita(Integer id, String descripcionCita, Integer estadoCita, Horario horario) {
+        this.id = id;
         this.descripcionCita = descripcionCita;
         this.estadoCita = estadoCita;
         this.horario = horario;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public List<Asignacion> getAsignacion() {
         return asignacion;
     }
@@ -72,15 +80,7 @@ public class Cita implements java.io.Serializable{
     public void setHistorial(List<Historial> historial) {
         this.historial = historial;
     }
-
-    public Integer getIdCita() {
-        return idCita;
-    }
-
-    public void setIdCita(Integer idCita) {
-        this.idCita = idCita;
-    }
-
+    
     public String getDescripcionCita() {
         return descripcionCita;
     }

@@ -5,6 +5,7 @@
  */
 package gt.umg.clinica.repo;
 
+import gt.umg.clinica.entities.Factura;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,10 +17,10 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository()
-public interface FacturaRepo extends JpaRepository<FacturaRepo, Integer>{
+public interface FacturaRepo extends JpaRepository<Factura, Integer>{
     
     @Override
-    List <FacturaRepo> findAll();
+    List <Factura> findAll();
     
     Integer findById(Integer id);
     

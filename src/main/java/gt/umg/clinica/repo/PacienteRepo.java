@@ -22,7 +22,7 @@ public interface PacienteRepo extends JpaRepository<Paciente, Integer> {
     @Override
     List <Paciente> findAll();
     
-    String findByName(String nombre);
+    String findByNombre(String nombre);
     
     Integer findById(Integer id);
     

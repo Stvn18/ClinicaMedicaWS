@@ -32,7 +32,7 @@ public class Asignacion implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAsignacion;
+    private Integer id;
     
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -53,20 +53,20 @@ public class Asignacion implements java.io.Serializable{
     public Asignacion() {
     }
 
-    public Asignacion(Integer idAsignacion, Date fecha, Paciente paciente, Trabajador trabajador, Cita cita) {
-        this.idAsignacion = idAsignacion;
+    public Asignacion(Integer id, Date fecha, Paciente paciente, Trabajador trabajador, Cita cita) {
+        this.id = id;
         this.fecha = fecha;
         this.paciente = paciente;
         this.trabajador = trabajador;
         this.cita = cita;
     }
 
-    public Integer getIdAsignacion() {
-        return idAsignacion;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdAsignacion(Integer idAsignacion) {
-        this.idAsignacion = idAsignacion;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Date getFecha() {

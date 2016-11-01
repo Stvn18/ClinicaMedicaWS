@@ -24,7 +24,7 @@ public interface UsuarioRepo extends JpaRepository<Usuario, Integer> {
     
     Integer findById(Integer id);
     
-    String findByUser(String usuario);
+    String findByUsuario(String usuario);
     
     @Query("select max(id) from Usuario")
     Integer findByMaxId();

@@ -27,7 +27,7 @@ public class Tpago implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idTPago;
+    private Integer id;
     
     @Column(name="DESCRIPCION", length = 25)
     private String descripcion;
@@ -38,18 +38,18 @@ public class Tpago implements java.io.Serializable{
     public Tpago() {
     }
 
-    public Tpago(Integer idTPago, String descripcion, Integer interes) {
-        this.idTPago = idTPago;
+    public Tpago(Integer id, String descripcion, Integer interes) {
+        this.id = id;
         this.descripcion = descripcion;
         this.interes = interes;
     }
 
-    public Integer getIdTPago() {
-        return idTPago;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdTPago(Integer idTPago) {
-        this.idTPago = idTPago;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDescripcion() {

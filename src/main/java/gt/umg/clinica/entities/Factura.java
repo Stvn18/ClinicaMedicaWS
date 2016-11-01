@@ -32,7 +32,7 @@ public class Factura implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idFactura;
+    private Integer id;
     
     @Column(name="NIT",length = 15)
     private String nit;
@@ -53,8 +53,8 @@ public class Factura implements java.io.Serializable{
     public Factura() {
     }
 
-    public Factura(Integer idFactura, String nit, String nombreCliente, String direccion, Date fecha, Paciente paciente) {
-        this.idFactura = idFactura;
+    public Factura(Integer id, String nit, String nombreCliente, String direccion, Date fecha, Paciente paciente) {
+        this.id = id;
         this.nit = nit;
         this.nombreCliente = nombreCliente;
         this.direccion = direccion;
@@ -62,14 +62,14 @@ public class Factura implements java.io.Serializable{
         this.paciente = paciente;
     }
 
-    public Integer getIdFactura() {
-        return idFactura;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdFactura(Integer idFactura) {
-        this.idFactura = idFactura;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public String getNit() {
         return nit;
     }

@@ -30,7 +30,7 @@ public class Inventario implements java.io.Serializable{
     @Id()
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idInventario;
+    private Integer id;
     
     @Temporal(TemporalType.DATE)
     private Date fechaApertura;
@@ -44,21 +44,21 @@ public class Inventario implements java.io.Serializable{
     public Inventario() {
     }
 
-    public Inventario(Integer idInventario, Date fechaApertura, Integer medicinas, Integer dinero) {
-        this.idInventario = idInventario;
+    public Inventario(Integer id, Date fechaApertura, Integer medicinas, Integer dinero) {
+        this.id = id;
         this.fechaApertura = fechaApertura;
         this.medicinas = medicinas;
         this.dinero = dinero;
     }
 
-    public Integer getIdInventario() {
-        return idInventario;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdInventario(Integer idInventario) {
-        this.idInventario = idInventario;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     public Date getFechaApertura() {
         return fechaApertura;
     }

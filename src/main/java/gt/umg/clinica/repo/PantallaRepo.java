@@ -24,6 +24,6 @@ public interface PantallaRepo extends JpaRepository<Pantalla, Integer> {
     
     Integer findById(Integer id);
     
-    List <Rol> findByRolId(Integer rol);
+    List <Pantalla> findByRol(Rol rol);
     
 }
