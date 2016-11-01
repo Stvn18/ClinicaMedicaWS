@@ -5,10 +5,37 @@
  */
 package gt.umg.clinica.inte;
 
+import gt.umg.clinica.entities.Rol;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 /**
  *
  * @author steven
  */
+@RestController()
+@RequestMapping(value="/api/Rol",produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 public interface RolInte {
+    
+    @Transactional(readOnly = true)
+    @RequestMapping(value={"","/"}, method = RequestMethod.GET)
+    public ResponseEntity <Rol> findAll(
+    @RequestParam(value = "token", defaultValue = "") String token,
+    @RequestParam(value = "userId", defaultValue = "0") Integer userId
+    ) throws Exception;
+    
+    @Transactional()
+    @RequestMapping(value={"","/"}, method = RequestMethod.POST)
+    public ResponseEntity <Rol> doCreate(
+    @RequestParam(value = "token", defaultValue = "") String token,
+    @RequestParam(value = "userId", defaultValue = "0") Integer userId,
+    @RequestBody() Rol rol
+    ) throws Exception;
     
 }
