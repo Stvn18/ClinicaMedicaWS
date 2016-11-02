@@ -48,7 +48,7 @@ public class UsuarioImpl implements UsuarioInte {
     }
 
     @Override
-    public ResponseEntity<Usuario> doCreate(Usuario usuario) throws Exception {
+    public ResponseEntity<Usuario> doCreate(String token, Integer userId, Usuario usuario) throws Exception {
         
         if("".equals(usuario.getUsuario()) || usuario.getUsuario()==null){
             return new ResponseEntity(HttpStatus.BAD_REQUEST);

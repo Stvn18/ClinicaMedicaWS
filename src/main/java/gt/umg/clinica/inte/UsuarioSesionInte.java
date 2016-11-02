@@ -39,7 +39,7 @@ public interface UsuarioSesionInte {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ResponseEntity<UsuarioSesion> login(
             @RequestParam(value = "usuario", defaultValue = "") String usuario,
-            @RequestParam(value = "pass", defaultValue = "0") String pass
+            @RequestParam(value = "pass", defaultValue = "") String pass
     ) throws Exception;
     
 }

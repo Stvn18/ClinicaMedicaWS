@@ -35,8 +35,10 @@ public interface UsuarioInte {
 
     @Transactional()
     @RequestMapping(value = {"", "/"}, method = RequestMethod.POST)
-    public ResponseEntity<Usuario> doCreate(
-            @RequestBody(required = true) Usuario usuario
+    public ResponseEntity doCreate(
+            @RequestParam(value = "token", defaultValue = "") String token,
+            @RequestParam(value = "userId", defaultValue = "0") Integer userId,
+            @RequestBody() Usuario usuario
     ) throws Exception;
 
 }
