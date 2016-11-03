@@ -5,6 +5,7 @@
  */
 package gt.umg.clinica.config;
 
+import gt.umg.clinica.config.filters.CORSFilter;
 import gt.umg.clinica.logs.ConfiguracionLogs;
 import gt.umg.clinica.logs.FiltroLogs;
 import javax.servlet.FilterRegistration;
@@ -46,7 +47,13 @@ public class AppConfig implements WebApplicationInitializer {
 
         FilterRegistration.Dynamic FiltroLogs = servletContext.addFilter(FILTER_LOGGING, new FiltroLogs());
         FiltroLogs.addMappingForUrlPatterns(null, true, FILTER_LOGGING_MAPPING);
+        
 
+String cors = "*";
+        
+        FilterRegistration.Dynamic CORSFilter = servletContext.addFilter("CORSFilter", new CORSFilter(cors));
+        CORSFilter.addMappingForUrlPatterns(null, true, FILTER_LOGGING_MAPPING);
+        
         servletContext.addListener(new ContextLoaderListener(rootContext));
     }
 }
