@@ -63,7 +63,7 @@ public class Paciente implements java.io.Serializable {
     private Clinica clinica;
     
     @ManyToOne()
-    @JoinColumn(name = "USUARIOID", referencedColumnName = "ID")
+    @JoinColumn(name = "USUARIO_ID", referencedColumnName = "ID")
     private Usuario usuario;
 
     public Paciente() {

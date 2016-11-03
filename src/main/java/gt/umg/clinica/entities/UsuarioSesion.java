@@ -33,14 +33,16 @@ public class UsuarioSesion implements java.io.Serializable {
     @Column(name = "TOKEN")
     private String token;
 
+    @Column(name = "FECHA_INICIO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaInicio;
 
+    @Column(name = "FECHA_FIN")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaFin;
     
     @ManyToOne
-    @JoinColumn(name = "USUARIO_ID", referencedColumnName = "ID")
+    @JoinColumn(/*name = "USUARIO_ID", referencedColumnName = "ID"*/)
     private Usuario usuario;
 
     public UsuarioSesion() {

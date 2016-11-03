@@ -60,11 +60,12 @@ public class UsuarioSesionImpl implements UsuarioSesionInte{
         String token = Md5Encrypt.get_md5(infoToken);
 
         UsuarioSesion usuarioSesion = new UsuarioSesion();
-
-        usuarioSesion.setUsuario(user);
+        
         usuarioSesion.setToken(token);
         usuarioSesion.setFechaInicio(fechaActual);
         usuarioSesion.setFechaFin(fechaActual);
+        usuarioSesion.setUsuario(user);
+       
 
         usuarioSesionRepo.save(usuarioSesion);
 
