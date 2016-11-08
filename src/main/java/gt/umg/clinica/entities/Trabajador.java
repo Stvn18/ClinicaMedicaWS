@@ -24,38 +24,39 @@ import javax.persistence.Table;
  * @author steven
  */
 @Entity()
-@Table(name="TRABAJADOR", schema="CLINICA")
+@Table(name = "TRABAJADOR", schema = "CLINICA")
 public class Trabajador implements java.io.Serializable {
-    
+
     @Id()
-    @Column(name="ID")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-    @Column(name="NOMBRE", length = 25)
+
+    @Column(name = "NOMBRE", length = 25)
     private String nombre;
-    
-    @Column(name="APELLIDO", length = 25)
+
+    @Column(name = "APELLIDO", length = 25)
     private String apellido;
-    
-    @Column(name="EDAD")
+
+    @Column(name = "EDAD")
     private Integer edad;
-    
-    @Column(name="TELEFONO", length = 8)
+
+    @Column(name = "TELEFONO", length = 8)
     private String telefono;
-    
-    @Column(name="SEXO", length = 1)
+
+    @Column(name = "SEXO", length = 1)
     private String sexo;
-    
+
+    /*
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
     private Usuario usuario;
-    
+     */
     @ManyToOne
     @JoinColumn(name = "ID_PUESTO", referencedColumnName = "ID")
     @JsonIgnore()
     private Puesto puesto;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CLINICA", referencedColumnName = "ID")
     private Clinica clinica;
@@ -63,18 +64,17 @@ public class Trabajador implements java.io.Serializable {
     public Trabajador() {
     }
 
-    public Trabajador(Integer id, String nombre, String apellido, Integer edad, String telefono, String sexo, Usuario usuario, Puesto puesto, Clinica clinica) {
+    public Trabajador(Integer id, String nombre, String apellido, Integer edad, String telefono, String sexo, Puesto puesto, Clinica clinica) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.telefono = telefono;
         this.sexo = sexo;
-        this.usuario = usuario;
         this.puesto = puesto;
         this.clinica = clinica;
     }
-
+    
     public Integer getId() {
         return id;
     }
@@ -82,7 +82,7 @@ public class Trabajador implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -123,14 +123,6 @@ public class Trabajador implements java.io.Serializable {
         this.sexo = sexo;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
     public Puesto getPuesto() {
         return puesto;
     }
@@ -146,5 +138,5 @@ public class Trabajador implements java.io.Serializable {
     public void setClinica(Clinica clinica) {
         this.clinica = clinica;
     }
-    
+
 }

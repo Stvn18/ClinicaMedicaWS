@@ -40,13 +40,17 @@ public class Puesto implements java.io.Serializable {
     public Puesto() {
     }
 
+    public Puesto(Integer id) {
+        this.id = id;
+    }
+    
     public Puesto(Integer id, String nombrePuesto, Integer salario, String ubicacion) {
         this.id = id;
         this.nombrePuesto = nombrePuesto;
         this.salario = salario;
         this.ubicacion = ubicacion;
     }
-
+    
     public Integer getId() {
         return id;
     }

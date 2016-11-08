@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,38 +28,37 @@ import javax.persistence.TemporalType;
  */
 @Entity()
 @Table(name = "ASIGNACION", schema = "CLINICA")
-public class Asignacion implements java.io.Serializable{
-    
+public class Asignacion implements java.io.Serializable {
+
     @Id()
-    @Column(name="ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "asignacion_seq")
+    @SequenceGenerator(name = "asignacion_seq", sequenceName = "asignacion_seq", initialValue= 1, allocationSize = 1)
     private Integer id;
-    
+
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    
+
     @ManyToOne
     @JoinColumn(name = "ID_PACIENTE", referencedColumnName = "ID")
     private Paciente paciente;
-    
+
     @ManyToOne
     @JoinColumn(name = "ID_TRABAJADOR", referencedColumnName = "ID")
     private Trabajador trabajador;
-    
-    @ManyToOne
-    @JoinColumn(name = "ID_CITA", referencedColumnName = "ID")
-    @JsonIgnore()
-    private Cita cita;
+
+    @Column(name = "ID_CITA")
+    private Integer idCita;
 
     public Asignacion() {
     }
 
-    public Asignacion(Integer id, Date fecha, Paciente paciente, Trabajador trabajador, Cita cita) {
+    public Asignacion(Integer id, Date fecha, Paciente paciente, Trabajador trabajador, Integer idCita) {
         this.id = id;
         this.fecha = fecha;
         this.paciente = paciente;
         this.trabajador = trabajador;
-        this.cita = cita;
+        this.idCita = idCita;
     }
 
     public Integer getId() {
@@ -93,11 +93,12 @@ public class Asignacion implements java.io.Serializable{
         this.trabajador = trabajador;
     }
 
-    public Cita getCita() {
-        return cita;
+    public Integer getIdCita() {
+        return idCita;
     }
 
-    public void setCita(Cita cita) {
-        this.cita = cita;
+    public void setIdCita(Integer idCita) {
+        this.idCita = idCita;
     }
+
 }

@@ -32,7 +32,7 @@ public class Horario implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     
     @Temporal(TemporalType.TIMESTAMP)

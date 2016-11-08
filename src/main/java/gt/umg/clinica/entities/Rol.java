@@ -7,11 +7,14 @@ package gt.umg.clinica.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,14 +31,12 @@ public class Rol implements java.io.Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column(name="DESCRIPCION",length = 25)
+    @Column(name="DESCRIPCION", length = 25)
     private String descripcion;
     
-    @OneToMany(mappedBy = "rol")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID_ROL")
     private List<Pantalla> pantallas = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "rol")
-    private List<Usuario> usuario = new ArrayList<>();
     
     public Rol(){
         
@@ -62,20 +63,12 @@ public class Rol implements java.io.Serializable{
         this.descripcion = descripcion;
     }
 
-    public List<Pantalla> getPantalla() {
+    public List<Pantalla> getPantallas() {
         return pantallas;
     }
 
-    public void setPantalla(List<Pantalla> pantalla) {
-        this.pantallas = pantalla;
-    }
-
-    public List<Usuario> getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(List<Usuario> usuario) {
-        this.usuario = usuario;
+    public void setPantallas(List<Pantalla> pantallas) {
+        this.pantallas = pantallas;
     }
     
 }

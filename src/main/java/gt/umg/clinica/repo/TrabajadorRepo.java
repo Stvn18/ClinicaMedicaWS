@@ -5,6 +5,7 @@
  */
 package gt.umg.clinica.repo;
 
+import gt.umg.clinica.entities.Puesto;
 import gt.umg.clinica.entities.Trabajador;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -29,6 +30,6 @@ public interface TrabajadorRepo extends JpaRepository<Trabajador, Integer> {
     @Query("select max(id) from Trabajador")
     Integer findByMaxIdTrabajador();
     
-    
+    List<Trabajador> findByPuesto(Puesto puesto);
     
 }

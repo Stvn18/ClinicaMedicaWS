@@ -5,14 +5,11 @@
  */
 package gt.umg.clinica.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,22 +30,24 @@ public class Pantalla implements java.io.Serializable {
 
     @Column(name = "URL_IMAGE")
     private String urlImage;
-
-    @ManyToOne()
-    @JoinColumn(name = "ID_ROL", referencedColumnName = "ID")
-    @JsonIgnore()
-    private Rol rol;
+    
+    @Column(name = "ID_ROL")
+    private Integer idRol;
+    
+    @Column(name = "HREF")
+    private String href;
 
     public Pantalla() {
     }
 
-    public Pantalla(Integer id, String pantalla, String urlImage, Rol rol) {
+    public Pantalla(Integer id, String pantalla, String urlImage, Integer idRol, String href) {
         this.id = id;
         this.pantalla = pantalla;
         this.urlImage = urlImage;
-        this.rol = rol;
+        this.idRol = idRol;
+        this.href = href;
     }
-
+    
     public Integer getId() {
         return id;
     }
@@ -73,14 +72,20 @@ public class Pantalla implements java.io.Serializable {
         this.urlImage = urlImage;
     }
 
-    public Rol getRol() {
-        return rol;
+    public Integer getIdRol() {
+        return idRol;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setIdRol(Integer idRol) {
+        this.idRol = idRol;
     }
 
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
     
-
 }

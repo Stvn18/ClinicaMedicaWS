@@ -13,6 +13,8 @@ import gt.umg.clinica.repo.UsuarioSesionRepo;
 import gt.umg.clinica.security.Md5Encrypt;
 import static java.lang.System.console;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,9 @@ import org.springframework.stereotype.Component;
  */
 @Component()
 public class UsuarioSesionImpl implements UsuarioSesionInte{
+    
+    Logger log = LoggerFactory.getLogger(this.getClass());
+    
     @Autowired()
     UsuarioRepo usuarioRepo;
 
@@ -47,9 +52,8 @@ public class UsuarioSesionImpl implements UsuarioSesionInte{
          * Comparamos los password
          */
         String encryptPassword = Md5Encrypt.get_md5(pass);
-        String encryptPasswords = Md5Encrypt.get_md5(user.getPassword());
-
-        if (!encryptPasswords.equals(encryptPassword)) {
+        
+        if (!user.getPassword().equals(encryptPassword)) {
             return new ResponseEntity(HttpStatus.ACCEPTED);
         }
 
@@ -58,7 +62,7 @@ public class UsuarioSesionImpl implements UsuarioSesionInte{
         String infoToken = Integer.toString(user.getId()) + Long.toString(fechaActual.getTime());
 
         String token = Md5Encrypt.get_md5(infoToken);
-
+        
         UsuarioSesion usuarioSesion = new UsuarioSesion();
         
         usuarioSesion.setToken(token);

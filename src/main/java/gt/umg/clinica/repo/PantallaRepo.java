@@ -6,7 +6,6 @@
 package gt.umg.clinica.repo;
 
 import gt.umg.clinica.entities.Pantalla;
-import gt.umg.clinica.entities.Rol;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -23,7 +22,5 @@ public interface PantallaRepo extends JpaRepository<Pantalla, Integer> {
     List <Pantalla> findAll();
     
     Integer findById(Integer id);
-    
-    List <Pantalla> findByRol(Rol rol);
     
 }

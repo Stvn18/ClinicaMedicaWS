@@ -7,14 +7,17 @@ package gt.umg.clinica.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -28,17 +31,19 @@ public class Cita implements java.io.Serializable{
     
     @Id()
     @Column(name="ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "cita_seq")
+    @SequenceGenerator(name = "cita_seq", sequenceName = "cita_seq", initialValue= 1, allocationSize = 1)
     private Integer id;
     
-    @Column(name="DESCRIPCION")
-    private String descripcionCita;
+    @Column(name = "DESCRIPCION")
+    private String descripcion;
     
-    @Column(name="ESTADO")
-    private Integer estadoCita;
+    @Column(name = "ESTADO")
+    private String estado;
     
-    @OneToMany(mappedBy = "cita")
-    private List <Asignacion> asignacion = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CITA")
+    private List <Asignacion> asignaciones = new ArrayList<>();
     
     @OneToMany(mappedBy = "cita")
     private List <Historial> historial = new ArrayList<>();
@@ -50,13 +55,13 @@ public class Cita implements java.io.Serializable{
     public Cita() {
     }
 
-    public Cita(Integer id, String descripcionCita, Integer estadoCita, Horario horario) {
+    public Cita(Integer id, String descripcion, String estado, Horario horario) {
         this.id = id;
-        this.descripcionCita = descripcionCita;
-        this.estadoCita = estadoCita;
+        this.descripcion = descripcion;
+        this.estado = estado;
         this.horario = horario;
     }
-
+    
     public Integer getId() {
         return id;
     }
@@ -65,14 +70,6 @@ public class Cita implements java.io.Serializable{
         this.id = id;
     }
     
-    public List<Asignacion> getAsignacion() {
-        return asignacion;
-    }
-
-    public void setAsignacion(List<Asignacion> asignacion) {
-        this.asignacion = asignacion;
-    }
-
     public List<Historial> getHistorial() {
         return historial;
     }
@@ -80,29 +77,37 @@ public class Cita implements java.io.Serializable{
     public void setHistorial(List<Historial> historial) {
         this.historial = historial;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
-    public String getDescripcionCita() {
-        return descripcionCita;
-    }
-
-    public void setDescripcionCita(String descripcionCita) {
-        this.descripcionCita = descripcionCita;
-    }
-
-    public Integer getEstadoCita() {
-        return estadoCita;
-    }
-
-    public void setEstadoCita(Integer estadoCita) {
-        this.estadoCita = estadoCita;
-    }
-
     public Horario getHorario() {
         return horario;
     }
 
     public void setHorario(Horario horario) {
         this.horario = horario;
+    }
+
+    public List<Asignacion> getAsignaciones() {
+        return asignaciones;
+    }
+
+    public void setAsignaciones(List<Asignacion> asignaciones) {
+        this.asignaciones = asignaciones;
     }
     
 }

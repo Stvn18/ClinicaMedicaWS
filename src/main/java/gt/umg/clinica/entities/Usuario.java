@@ -5,8 +5,6 @@
  */
 package gt.umg.clinica.entities;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -36,7 +33,7 @@ public class Usuario implements java.io.Serializable {
     @Column(name = "USUARIO", length = 25)
     private String usuario;
 
-    @Column(name = "PASSWORD", length = 25)
+    @Column(name = "PASSWORD", length = 100)
     private String password;
 
     @Column(name = "ESTADO")
@@ -97,7 +94,7 @@ public class Usuario implements java.io.Serializable {
     }
 
     public void setPassword(String pass) {
-        this.password = password;
+        this.password = pass;
     }
 
     public Integer getEstado() {
