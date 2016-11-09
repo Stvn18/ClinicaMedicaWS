@@ -48,6 +48,14 @@ public class UsuarioSesionImpl implements UsuarioSesionInte{
 
         }
         
+        if ("".equals(usuario)){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        
+        if("".equals(pass)){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        
         /**
          * Comparamos los password
          */

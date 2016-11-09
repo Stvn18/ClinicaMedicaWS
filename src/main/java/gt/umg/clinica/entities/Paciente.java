@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -30,7 +31,8 @@ public class Paciente implements java.io.Serializable {
     
     @Id()
     @Column(name="ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "paciente_seq")
+    @SequenceGenerator(name = "paciente_seq", sequenceName = "paciente_seq", initialValue= 1, allocationSize = 1)
     private Integer id;
     
     @Column(name="NOMBRE", length = 25)

@@ -52,6 +52,10 @@ public class Clinica implements java.io.Serializable {
         this.telefonoClinica = telefonoClinica;
     }
 
+    public Clinica(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }
